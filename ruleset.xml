@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+  <description>
+  This ruleset checks my code for bad stuff
+  </description>
+
+  	<rule ref="rulesets/ecmascript/basic.xml"/>
+  	<rule ref="rulesets/ecmascript/braces.xml"/>
+  	<!--Changing priority of GlobalVariable rule to 3 -->
+  	<rule
+  		ref="rulesets/ecmascript/basic.xml/GlobalVariable"
+  		message="Use of global variables should be avoided">
+  		<priority>3</priority>
+  	</rule>
+
+
+
+    <rule name="CheckRequireParams"
+          message="Provide only 1 parameter when using require function"
+          language="ecmascript" since="5.0.1"
+          class="net.sourceforge.pmd.lang.rule.XPathRule">
+    <description>Require can only have 1 parameter</description>
+    <priority>1</priority>
+      <properties>
+        <property name="xpath">
+        <value><![CDATA[
+      //FunctionCall/Name[
+       @Image = 'require'
+       and
+       count(../*) >2
+      ]
+      ]]></value>
+      </property>
+    </properties>
+    <example>
+    <![CDATA[
+    require(abc);
+    ]]>
+    </example>
+    </rule>
+
+</ruleset>

@@ -1,0 +1,25 @@
+{
+  "name": "randomstring",
+  "version": "1.1.0",
+  "author": "Elias Klughammer <elias@klughammer.com> (http://www.klughammer.com)",
+  "description": "A module for generating random strings",
+  "homepage": "https://github.com/klughammer/node-randomstring",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/klughammer/node-randomstring.git"
+  },
+  "main": "./index",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "cheerio": "^0.19.0",
+    "istanbul": "^0.4.0",
+    "mocha": "^1.20.1",
+    "xml2js": "^0.4.13"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  }
+}
